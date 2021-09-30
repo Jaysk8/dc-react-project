@@ -7,19 +7,26 @@ const Home = () => {
     const [movies, setMovies] = useState([]);
     const [search, setSearch] = useState('');
 
-    useEffect(() => {
-        fetch('http://www.omdbapi.com/?s=batman&apikey=67172fa7')
+    const movieFetch = (search) => {
+        fetch(`http://www.omdbapi.com/?s=${search}&apikey=67172fa7`)
         .then(res => res.json())
         .then(data => {
-            console.log(data.Search)
-            setMovies(data.Search)
+
+            if(data.Search){
+                setMovies(data.Search)
+            }
         })
-    },[])
+    }
+
+    useEffect(() => {
+        movieFetch(search)
+    },[search])
 
     return (
         <div className="home">
-            <h2 className="mb-4">Movies</h2>
-            <Search />  
+            {/* <h2 className="mb-4">Movies</h2> */}
+
+            <Search search={search} setSearch={setSearch}/>  
             <MovieList movies={movies} />
         </div>
     )

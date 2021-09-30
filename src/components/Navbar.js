@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
 
     return (
-        <div className="navbar">
-            <h1>Movie Finder</h1>
+        <div className="navbar sticky-top">
+            <h1>MovieApp</h1>
 
             <div className="links">
                 <Link to="/">Home</Link>

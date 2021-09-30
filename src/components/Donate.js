@@ -1,8 +1,6 @@
 const Donate = () => {
     return (
-        <div>
-            <h2>Hello from donate page</h2>
-        </div>
+       <h1>donate</h1>
     )
 }
 
